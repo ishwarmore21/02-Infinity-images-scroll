@@ -13,7 +13,7 @@ const API_KEY =  'yGS6PC5SN5izg-jNC1-j3fp1IOlTYPEulZaA613EoE8'
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${API_KEY}&count=${COUNT}`;
 
 // Check if all images were loaded
-function imageLoaded() {
+const imageLoaded=()=> {
     imagesLoaded++;
     if (imagesLoaded === totalImages) {
       ready = true;
@@ -23,14 +23,14 @@ function imageLoaded() {
 
 // Iteratively set attributes
 // Helper Function to Set Attributes on DOM Elements
-function setAttributes(element, attributes) {
+const setAttributes=(element, attributes) => {
     for (const key in attributes) {
       element.setAttribute(key, attributes[key]);
     }
   }
   
   // Create Elements For Links & Photos, Add to DOM
-  function displayPhotos() {
+  const displayPhotos=()=> {
     imagesLoaded = 0;
     totalImages = photosArray.length;
     // Run function for each object in photosArray
@@ -57,7 +57,7 @@ function setAttributes(element, attributes) {
   }
   
   // Get photos from Unsplash API
-  async function getPhotos() {
+  const getPhotos = async ()=> {
     try {
       const response = await fetch(apiUrl);
       photosArray = await response.json();
